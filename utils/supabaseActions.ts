@@ -1,13 +1,13 @@
-import { supabaseClient } from "./supabaseClient";
+import { supabase } from "./supabaseClient";
 
 async function signInWithGithub() {
-  const { user, session, error } = await supabaseClient.auth.signIn({
+  const { user, session, error } = await supabase.auth.signIn({
     provider: "github",
   });
 }
 
 async function signOut() {
-  const { error } = await supabaseClient.auth.signOut();
+  const { error } = await supabase.auth.signOut();
 }
 
 export { signInWithGithub, signOut };
