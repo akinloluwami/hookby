@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import Router from "next/router";
 import { supabase } from "../utils/supabaseClient";
 import { signInWithGithub, signOut } from "../utils/supabaseActions";
+import Navbar from "../components/Navbar/Navbar";
+import Hero from "../components/Hero/Hero";
 
 const Home: NextPage = () => {
   const [user, setUser] = useState<any>();
@@ -16,32 +18,7 @@ const Home: NextPage = () => {
   }, []);
   return (
     <>
-      <>
-        {user ? (
-          <>
-            <Text> Welcome {user.user_metadata.name}</Text>
-            <Avatar src={user.user_metadata.avatar_url} />
-            <Button
-              onClick={() => {
-                signOut();
-                window.location.reload();
-              }}
-            >
-              signOut
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              onClick={() => {
-                signInWithGithub();
-              }}
-            >
-              Login with GitHub
-            </Button>
-          </>
-        )}
-      </>
+      <Hero />
     </>
   );
 };
