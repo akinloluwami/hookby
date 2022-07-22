@@ -14,7 +14,7 @@ function Navbar() {
         px={"30px"}
         py={"10px"}
       >
-        <Text>
+        <Text color="brand.accent" fontSize={"30px"} fontWeight={"bold"}>
           <a href="/">hookBy</a>
         </Text>
         <UnorderedList
@@ -30,6 +30,9 @@ function Navbar() {
                   alignItems="center"
                   mx={"10px"}
                   size="sm"
+                  backgroundColor="rgba(255,255,255,0.1)"
+                  color="#fff"
+                  _hover={{ backgroundColor: "rgba(255,255,255,0.2)" }}
                 >
                   <img src={meme.icon} alt={meme.name} width="25px" />
                   <Text marginLeft={"5px"}>{meme.name}</Text>
@@ -44,6 +47,8 @@ function Navbar() {
             onClick={() => {
               router.push("/");
             }}
+            backgroundColor="brand.accent"
+            color="#fff"
           >
             Sign in
           </Button>
